@@ -1,5 +1,5 @@
 ## Step - 1 : Clone the project
-### git clone <your-repo-link>
+### git clone your-repo-link
 
 ## Step - 2 : Go to backend folder & install all dependencies
 ### cd backend
