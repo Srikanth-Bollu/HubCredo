@@ -30,16 +30,16 @@ router.post("/signup", async (req, res) => {
         const user = await User.create({ name, email, password: hashed });
 
         // Send welcome email
-        // try {
-        //     await transporter.sendMail({
-        //         from: `"Auth App" <${process.env.EMAIL}>`,
-        //         to: email,
-        //         subject: "Welcome 🎉",
-        //         html: `<h2>Hello ${name}, welcome onboard 🚀</h2>`,
-        //     });
-        // } catch (emailError) {
-        //     console.error("Error sending email:", emailError);
-        // }
+        try {
+            await transporter.sendMail({
+                from: `"Auth App" <${process.env.EMAIL}>`,
+                to: email,
+                subject: "Welcome 🎉",
+                html: `<h2>Hello ${name}, welcome onboard 🚀</h2>`,
+            });
+        } catch (emailError) {
+            console.error("Error sending email:", emailError);
+        }
 
         res.json({
             message: "User registered successfully"
